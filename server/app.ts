@@ -1,5 +1,4 @@
 import { Hono } from 'hono';
-import { cors } from 'hono/cors';
 import './loadEnv.js';
 import { getAiConfig } from './loadEnv.js';
 import { runContextAgent } from './agents/context.js';
@@ -8,28 +7,7 @@ import { runAssignAgent } from './agents/assign.js';
 import { runSprintAgent } from './agents/sprint.js';
 import { contextInputSchema } from '../shared/schemas/index.js';
 
-function getAllowedOrigins(): string[] {
-  const origins = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-  ];
-  if (process.env.VERCEL_URL) {
-    origins.push(`https://${process.env.VERCEL_URL}`);
-  }
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    origins.push(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`);
-  }
-  return origins;
-}
-
 export const app = new Hono();
-
-app.use(
-  '/*',
-  cors({
-    origin: getAllowedOrigins(),
-  }),
-);
 
 app.get('/api/health', (c) => {
   try {
