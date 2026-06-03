@@ -3,9 +3,9 @@ import {
   projectContextSchema,
   type ContextInput,
   type ProjectContext,
-} from '../../shared/schemas/index.ts';
-import { fetchDocumentation } from '../lib/fetchDocumentation.ts';
-import { runStructuredAgent } from '../lib/llm.ts';
+} from '../../shared/schemas';
+import { fetchDocumentation } from '../lib/fetchDocumentation';
+import { runStructuredAgent } from '../lib/llm';
 
 const SYSTEM = `You are the Context Agent for an AI sprint planner.
 Extract and normalize project information ONLY from the provided input.

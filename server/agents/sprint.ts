@@ -3,7 +3,7 @@ import {
   type AssignmentPlan,
   type SprintBoard,
   type SprintCard,
-} from '../../shared/schemas/index.ts';
+} from '../../shared/schemas';
 
 /** New projects start with every ticket in To Do — nothing in progress yet. */
 export async function runSprintAgent(

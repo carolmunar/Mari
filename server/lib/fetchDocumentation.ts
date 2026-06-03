@@ -112,7 +112,10 @@ async function fetchNotionBlocksText(
     for (const block of response.results) {
       if (!('type' in block)) continue;
       const type = block.type;
-      const data = block as Record<string, { rich_text?: { plain_text: string }[] }>;
+      const data = block as unknown as Record<
+        string,
+        { rich_text?: { plain_text: string }[] }
+      >;
 
       const rich = data[type]?.rich_text;
       if (rich?.length) {

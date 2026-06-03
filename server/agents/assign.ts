@@ -5,8 +5,8 @@ import {
   type AssignmentPlan,
   type TaskGraph,
   type TeamMember,
-} from '../../shared/schemas/index.ts';
-import { runStructuredAgent } from '../lib/llm.ts';
+} from '../../shared/schemas';
+import { runStructuredAgent } from '../lib/llm';
 import { z } from 'zod';
 
 const SYSTEM = `You are the Assignment Agent for an AI sprint planner.

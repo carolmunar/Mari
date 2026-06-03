@@ -118,6 +118,7 @@ export type TaskGraph = z.infer<typeof taskGraphSchema>;
 export type AssignmentRow = z.infer<typeof assignmentRowSchema>;
 export type AssignmentPlan = z.infer<typeof assignmentPlanSchema>;
 export type SprintBoard = z.infer<typeof sprintBoardSchema>;
+export type SprintCard = z.infer<typeof sprintCardSchema>;
 export type Quadrant = z.infer<typeof quadrantSchema>;
 
 export function computeQuadrant(effort: number, impact: number): Quadrant {

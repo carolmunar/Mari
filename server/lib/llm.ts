@@ -2,7 +2,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
 import { generateObject } from 'ai';
 import type { z } from 'zod';
-import { getAiConfig } from '../loadEnv.ts';
+import { getAiConfig } from '../loadEnv';
 
 export function getModel() {
   const { provider, apiKey } = getAiConfig();
@@ -27,8 +27,13 @@ export async function runStructuredAgent<T extends z.ZodType>(
     model: getModel(),
     schema,
     system,
-    prompt: JSON.stringify(userPayload, null, 2),
+    messages: [
+      {
+        role: 'user',
+        content: JSON.stringify(userPayload, null, 2),
+      },
+    ],
   });
 
-  return object;
+  return object as z.infer<T>;
 }
