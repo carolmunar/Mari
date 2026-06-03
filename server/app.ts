@@ -1,12 +1,12 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import './loadEnv';
-import { getAiConfig } from './loadEnv';
-import { runContextAgent } from './agents/context';
-import { runAnalyzeAgent } from './agents/analyze';
-import { runAssignAgent } from './agents/assign';
-import { runSprintAgent } from './agents/sprint';
-import { contextInputSchema } from '../shared/schemas';
+import './loadEnv.js';
+import { getAiConfig } from './loadEnv.js';
+import { runContextAgent } from './agents/context.js';
+import { runAnalyzeAgent } from './agents/analyze.js';
+import { runAssignAgent } from './agents/assign.js';
+import { runSprintAgent } from './agents/sprint.js';
+import { contextInputSchema } from '../shared/schemas/index.js';
 
 function getAllowedOrigins(): string[] {
   const origins = [

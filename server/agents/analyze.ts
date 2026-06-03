@@ -4,8 +4,8 @@ import {
   taskGraphSchema,
   type ProjectContext,
   type TaskGraph,
-} from '../../shared/schemas';
-import { runStructuredAgent } from '../lib/llm';
+} from '../../shared/schemas/index.js';
+import { runStructuredAgent } from '../lib/llm.js';
 
 const SYSTEM = `You are the Analysis Agent for an AI sprint planner.
 From the project context, extract actionable development tasks.

@@ -2,7 +2,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
 import { generateObject } from 'ai';
 import type { z } from 'zod';
-import { getAiConfig } from '../loadEnv';
+import { getAiConfig } from '../loadEnv.js';
 
 export function getModel() {
   const { provider, apiKey } = getAiConfig();
